@@ -1,0 +1,18 @@
+meta {
+  name: Task - Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:8081/tasks/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Criar Proposta do Projeto",
+    "description": "Escrever e enviar a proposta inicial para o cliente, incluindo o escopo, cronograma e orçamento."
+  }
+}

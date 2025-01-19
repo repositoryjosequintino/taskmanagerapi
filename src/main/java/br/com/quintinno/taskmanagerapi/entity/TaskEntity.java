@@ -27,6 +27,10 @@ public class TaskEntity {
 
     public TaskEntity() {}
 
+    public TaskEntity(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

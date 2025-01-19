@@ -3,8 +3,11 @@ package br.com.quintinno.taskmanagerapi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,6 +35,18 @@ public class TaskController {
     @GetMapping
     public List<TaskEntity> findAll() {
         return taskService.findAll();
+    }
+
+    @PutMapping("/{id}")
+    public TaskEntity upload(@PathVariable Long id, @RequestBody TaskEntity taskEntity) {
+        taskEntity.setId(id);
+        return this.taskService.upload(taskEntity);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Long id) {
+        this.taskService.delete(id);
+        return "Recurso excluído com sucesso!";
     }
 
 }

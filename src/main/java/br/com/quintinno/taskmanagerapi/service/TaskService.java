@@ -28,4 +28,16 @@ public class TaskService {
         return taskRepository.saveAll(taskEntityList);
     }
 
+    @Transactional
+    public TaskEntity upload(TaskEntity taskEntity) {
+        return taskRepository.save(taskEntity);
+    }
+    
+    @Transactional
+    public void delete(Long id) {
+        if (taskRepository.existsById(id)) {
+            taskRepository.deleteById(id);
+        }
+    }
+
 }
