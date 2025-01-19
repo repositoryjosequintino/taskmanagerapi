@@ -1,14 +1,29 @@
 package br.com.quintinno.taskmanagerapi.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TB_TASK")
 public class TaskEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID", nullable = false)
     private Long id;
 
+    @Column(name = "TITLE", length = 60, nullable = false)
     private String title;
 
+    @Column(name = "DESCRIPTION", length = 255)
     private String description;
 
-    private Boolean isCompleted;
+    @Column(name = "IS_COMPLETED", nullable = false)
+    private Boolean isCompleted = false;
 
     public TaskEntity() {}
 
