@@ -1,11 +1,11 @@
 meta {
-  name: Task - Complete
+  name: Task - Finished
   type: http
-  seq: 6
+  seq: 7
 }
 
-put {
-  url: http://localhost:8081/tasks/complete/15
+get {
+  url: http://localhost:8081/tasks/complete
   body: json
   auth: none
 }

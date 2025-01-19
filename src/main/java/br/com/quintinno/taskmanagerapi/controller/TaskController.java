@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.quintinno.taskmanagerapi.entity.TaskEntity;
 import br.com.quintinno.taskmanagerapi.service.TaskService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/tasks")
@@ -52,6 +54,16 @@ public class TaskController {
     @PutMapping("/complete/{id}")
     public TaskEntity complete(@PathVariable Long id) {
         return this.taskService.complete(id);
+    }
+
+    @GetMapping("/complete")
+    public List<TaskEntity> findTaskComplete() {
+        return taskService.findTaskComplete();
+    }
+
+    @GetMapping("/incomplete")
+    public List<TaskEntity> findTaskIncomplete() {
+        return taskService.findTaskIncomplete();
     }
 
 }

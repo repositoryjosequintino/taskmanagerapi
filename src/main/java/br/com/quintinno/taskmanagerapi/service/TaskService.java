@@ -48,4 +48,12 @@ public class TaskService {
         return this.taskRepository.save(taskEntity);
     }
 
+    public List<TaskEntity> findTaskComplete() {
+        return taskRepository.findByIsCompleted(true);
+    }
+
+    public List<TaskEntity> findTaskIncomplete() {
+        return taskRepository.findByIsCompleted(false);
+    }
+
 }
