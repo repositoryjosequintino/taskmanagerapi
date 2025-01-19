@@ -1,10 +1,10 @@
--- CREATE DATABASE DB_TASK_MENAGER;
--- USE DB_TASK_MENAGER;
+-- create database db_task_menager;
+-- use db_task_menager;
 
-CREATE TABLE IF NOT EXISTS TB_TASK (
-    ID BIGINT NOT NULL AUTO_INCREMENT,
-    TITLE VARCHAR (60) NOT NULL,
-    DESCRIPTION VARCHAR (255) NULL,
-    IS_COMPLETED BOOLEAN NOT NULL DEFAULT FALSE,
-    CONSTRAINT PK_TASK PRIMARY KEY (ID)
+create table if not exists tb_task (
+    id bigint not null auto_increment,
+    title varchar (60) not null,
+    description varchar (255) null,
+    is_completed boolean not null default false,
+    constraint pk_task primary key (id)
 );

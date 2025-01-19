@@ -8,21 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TB_TASK")
+@Table(name = "tb_task")
 public class TaskEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "TITLE", length = 60, nullable = false)
+    @Column(name = "title", length = 60, nullable = false)
     private String title;
 
-    @Column(name = "DESCRIPTION", length = 255)
+    @Column(name = "description", length = 255)
     private String description;
 
-    @Column(name = "IS_COMPLETED", nullable = false)
+    @Column(name = "is_completed", nullable = false)
     private Boolean isCompleted = false;
 
     public TaskEntity() {}

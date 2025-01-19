@@ -1,5 +1,7 @@
 package br.com.quintinno.taskmanagerapi.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,14 @@ public class TaskService {
     @Transactional
     public TaskEntity create(TaskEntity taskEntity) {
         return taskRepository.save(taskEntity);
+    }
+
+    public List<TaskEntity> findAll() {
+        return taskRepository.findAll();
+    }
+
+    public List<TaskEntity> createAll(List<TaskEntity> taskEntityList) {
+        return taskRepository.saveAll(taskEntityList);
     }
 
 }
