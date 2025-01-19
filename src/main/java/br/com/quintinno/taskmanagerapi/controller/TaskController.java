@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.quintinno.taskmanagerapi.entity.TaskEntity;
 import br.com.quintinno.taskmanagerapi.service.TaskService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
