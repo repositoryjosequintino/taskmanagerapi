@@ -49,4 +49,9 @@ public class TaskController {
         return "Recurso excluído com sucesso!";
     }
 
+    @PutMapping("/complete/{id}")
+    public TaskEntity complete(@PathVariable Long id) {
+        return this.taskService.complete(id);
+    }
+
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.quintinno.taskmanagerapi.entity.TaskEntity;
 import br.com.quintinno.taskmanagerapi.repository.TaskRepository;
@@ -38,6 +39,13 @@ public class TaskService {
         if (taskRepository.existsById(id)) {
             taskRepository.deleteById(id);
         }
+    }
+
+    @Transactional
+    public TaskEntity complete(@PathVariable Long id) {
+        TaskEntity taskEntity = taskRepository.findById(id).get();
+        taskEntity.setIsCompleted(true);
+        return this.taskRepository.save(taskEntity);
     }
 
 }

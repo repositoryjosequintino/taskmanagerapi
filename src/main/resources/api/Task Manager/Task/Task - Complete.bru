@@ -1,11 +1,11 @@
 meta {
-  name: Task - FindAll
+  name: Task - Complete
   type: http
-  seq: 3
+  seq: 6
 }
 
-get {
-  url: http://localhost:8081/tasks/
+put {
+  url: http://localhost:8081/tasks/complete/13
   body: json
   auth: none
 }
