@@ -1,12 +1,12 @@
 package br.com.quintinno.taskmanagerapi.transfer;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 import br.com.quintinno.taskmanagerapi.entity.TaskEntity;
 
 public class TaskRequestTransfer {
 
-    @NotNull
+    @NotBlank
     private String title;
 
     private String description;
