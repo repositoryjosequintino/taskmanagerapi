@@ -1,5 +1,6 @@
 package br.com.quintinno.taskmanagerapi.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +46,11 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Long id) {
+    public HashMap<String, String> delete(@PathVariable Long id) {
         this.taskService.delete(id);
-        return "Recurso excluído com sucesso!";
+        HashMap<String, String> hashResponse = new HashMap<>();
+            hashResponse.put("message", "Recurso excluído com sucesso!");
+        return hashResponse;
     }
 
     @PutMapping("/complete/{id}")
