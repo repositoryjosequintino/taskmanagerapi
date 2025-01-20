@@ -3,7 +3,10 @@ package br.com.quintinno.taskmanagerapi.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +31,8 @@ public class TaskController {
     private TaskService taskService;
 
     @PostMapping
-    public ResponseEntity<TaskResponseTransfer> create(@RequestBody TaskRequestTransfer taskRequestTransfer) {
-        return ResponseEntity.ok().body(taskService.create(taskRequestTransfer));
+    public ResponseEntity<TaskResponseTransfer> create(@RequestBody @Valid TaskRequestTransfer taskRequestTransfer) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(taskService.create(taskRequestTransfer));
     }
 
     @PostMapping("/create")
