@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.quintinno.taskmanagerapi.entity.TaskEntity;
 import br.com.quintinno.taskmanagerapi.service.TaskService;
+import br.com.quintinno.taskmanagerapi.transfer.TaskRequestTransfer;
+import br.com.quintinno.taskmanagerapi.transfer.TaskResponseTransfer;
 
 
 @RestController
@@ -26,8 +28,8 @@ public class TaskController {
     private TaskService taskService;
 
     @PostMapping
-    public ResponseEntity<TaskEntity> create(@RequestBody TaskEntity taskEntity) {
-        return ResponseEntity.ok().body(taskService.create(taskEntity));
+    public ResponseEntity<TaskResponseTransfer> create(@RequestBody TaskRequestTransfer taskRequestTransfer) {
+        return ResponseEntity.ok().body(taskService.create(taskRequestTransfer));
     }
 
     @PostMapping("/create")
