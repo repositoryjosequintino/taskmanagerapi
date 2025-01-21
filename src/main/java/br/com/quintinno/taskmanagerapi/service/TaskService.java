@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.quintinno.taskmanagerapi.entity.TaskEntity;
 import br.com.quintinno.taskmanagerapi.repository.TaskRepository;
+import br.com.quintinno.taskmanagerapi.transfer.TaskRequestTransfer;
+import br.com.quintinno.taskmanagerapi.transfer.TaskResponseTransfer;
 
 @Service
 public class TaskService {
@@ -17,8 +19,9 @@ public class TaskService {
     private TaskRepository taskRepository;
 
     @Transactional
-    public TaskEntity create(TaskEntity taskEntity) {
-        return taskRepository.save(taskEntity);
+    public TaskResponseTransfer create(TaskRequestTransfer taskRequestTransfer) {
+        TaskEntity taskEntity = TaskRequestTransfer.toEntity(taskRequestTransfer);
+        return TaskEntity.toTranfer(taskRepository.save(taskEntity));
     }
 
     public List<TaskEntity> findAll() {
@@ -30,7 +33,7 @@ public class TaskService {
     }
 
     @Transactional
-    public TaskEntity upload(TaskEntity taskEntity) {
+    public TaskEntity update(TaskEntity taskEntity) {
         return taskRepository.save(taskEntity);
     }
     

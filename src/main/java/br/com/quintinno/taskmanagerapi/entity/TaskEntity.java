@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import br.com.quintinno.taskmanagerapi.transfer.TaskResponseTransfer;
+
 @Entity
 @Table(name = "tb_task")
 public class TaskEntity {
@@ -26,6 +28,14 @@ public class TaskEntity {
     private Boolean isCompleted = false;
 
     public TaskEntity() {}
+
+    public static TaskResponseTransfer toTranfer(TaskEntity taskEntity) {
+        TaskResponseTransfer taskResponseTransfer = new TaskResponseTransfer();
+            taskResponseTransfer.setId(taskEntity.getId());
+            taskResponseTransfer.setTitle(taskEntity.getTitle());
+            taskResponseTransfer.setDescription(taskEntity.getDescription());
+        return taskResponseTransfer;
+    }
 
     public TaskEntity(Long id) {
         this.id = id;
