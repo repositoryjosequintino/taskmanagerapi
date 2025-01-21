@@ -13,6 +13,11 @@ public class TaskRequestTransfer {
 
     public TaskRequestTransfer() {}
 
+    public TaskRequestTransfer(@NotBlank String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
     public static TaskEntity toEntity(TaskRequestTransfer taskRequestTransfer) {
         TaskEntity taskEntity = new TaskEntity();
         taskEntity.setTitle(taskRequestTransfer.getTitle());
