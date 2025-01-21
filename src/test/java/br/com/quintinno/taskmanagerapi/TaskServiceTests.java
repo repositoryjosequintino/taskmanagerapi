@@ -17,7 +17,7 @@ import br.com.quintinno.taskmanagerapi.service.TaskService;
 import br.com.quintinno.taskmanagerapi.transfer.TaskRequestTransfer;
 import br.com.quintinno.taskmanagerapi.transfer.TaskResponseTransfer;
 
-public class TaskServiceTests {
+class TaskServiceTests {
 
     @Mock
     private TaskRepository taskRepository;
@@ -31,7 +31,7 @@ public class TaskServiceTests {
     }
 
     @Test
-    public void testCreateTaskSuccess() {
+    void testCreateTaskSuccess() {
         
         TaskRequestTransfer taskRequestTransfer = new TaskRequestTransfer("Task 001", "Description of Task 001");
 
