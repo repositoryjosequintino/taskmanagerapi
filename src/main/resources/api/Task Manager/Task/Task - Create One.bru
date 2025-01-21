@@ -1,0 +1,18 @@
+meta {
+  name: Task - Create One
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8081/tasks
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "title": "Tarefa [NEW]",
+      "description": "Crie os slides para a reunião de segunda-feira."
+  }
+}

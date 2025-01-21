@@ -1,0 +1,18 @@
+meta {
+  name: Task - Finished
+  type: http
+  seq: 7
+}
+
+get {
+  url: http://localhost:8081/tasks/complete
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Criar Proposta do Projeto",
+    "description": "Escrever e enviar a proposta inicial para o cliente, incluindo o escopo, cronograma e orçamento."
+  }
+}

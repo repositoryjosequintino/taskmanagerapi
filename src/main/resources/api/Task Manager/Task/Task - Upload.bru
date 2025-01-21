@@ -1,0 +1,18 @@
+meta {
+  name: Task - Update
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8081/tasks/18
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+  "title": "Assistir ao treinamento online (UPDATE)",
+      "description": "Complete o curso de introdução ao Kubernetes até quarta-feira."
+  }
+}
