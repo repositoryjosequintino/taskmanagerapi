@@ -46,9 +46,9 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public TaskEntity upload(@PathVariable Long id, @RequestBody TaskEntity taskEntity) {
+    public TaskEntity update(@PathVariable Long id, @RequestBody TaskEntity taskEntity) {
         taskEntity.setId(id);
-        return this.taskService.upload(taskEntity);
+        return this.taskService.update(taskEntity);
     }
 
     @DeleteMapping("/{id}")

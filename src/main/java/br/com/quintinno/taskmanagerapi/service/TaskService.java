@@ -33,7 +33,7 @@ public class TaskService {
     }
 
     @Transactional
-    public TaskEntity upload(TaskEntity taskEntity) {
+    public TaskEntity update(TaskEntity taskEntity) {
         return taskRepository.save(taskEntity);
     }
     
